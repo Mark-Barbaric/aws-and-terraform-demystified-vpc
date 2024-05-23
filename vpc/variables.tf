@@ -3,6 +3,11 @@ variable "region" {
   type                = string
 }
 
+variable "environment" {
+  type                = string
+  description         = "Environment the VPC belongs to."   
+}
+
 variable "vpc_name" {
   description         = "Name of the VPC"
   type                = string
@@ -14,21 +19,16 @@ variable "main_cidr_block" {
 }
 
 variable "public_cidr_blocks" {
-  type               = list(string)
-  description        = "Public Subnet CIDR Blocks."
+  type                = list(string)
+  description         = "Public Subnet CIDR Blocks."
 }
  
 variable "private_cidr_blocks" {
-  type               = list(string)
-  description        = "Private Subnet CIDR Blocks."
+  type                = list(string)
+  description         = "Private Subnet CIDR Blocks."
 }
 
 variable "availability_zones" {
-  type               = list(string)
-  description        = "Availability zones for the subnets."
-}
-
-variable "environment" {
-  type               = string
-  description        = "Environment the VPC belongs to."   
+  type                = list(string)
+  description         = "Availability zones for the subnets."
 }

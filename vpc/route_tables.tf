@@ -18,6 +18,6 @@ resource "aws_route_table" "private_subnet_route_tables" {
 
     tags = {
         Name            = "${var.vpc_name} Private Subnet Route Table ${count.index + 1}"
-        environment     = "test"
+        environment     = var.environment
     }
 }

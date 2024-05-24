@@ -4,7 +4,7 @@ resource "aws_vpc" "main_vpc" {
   enable_dns_hostnames  = "true"
   tags = {
       Name              = "${var.vpc_name}"
-      environment       = "dev"
+      environment       = var.environment
   }
 }
 
@@ -13,7 +13,7 @@ resource "aws_internet_gateway" "internet_gateway" {
 
     tags = {
         Name            = "${var.vpc_name} Gateway"
-        environment     = "test"
+        environment     = var.environment
     }
 }
 

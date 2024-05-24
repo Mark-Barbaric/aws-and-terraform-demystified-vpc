@@ -8,7 +8,6 @@ resource "aws_route_table" "main_route_table" {
 
     tags = {
         Name            = "${var.vpc_name} Route Table"
-        terraform       = true
         environment     = var.environment
     }
 }
@@ -19,7 +18,6 @@ resource "aws_route_table" "private_subnet_route_tables" {
 
     tags = {
         Name            = "${var.vpc_name} Private Subnet Route Table ${count.index + 1}"
-        terraform       = true
         environment     = "test"
     }
 }

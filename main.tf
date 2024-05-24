@@ -1,5 +1,6 @@
 module "vpc_test" {
-    source                      = './vpc'
+    source                      = "./vpc"
+    vpc_name                    = var.vpc_name
     region                      = var.region
     environment                 = var.environment
     main_cidr_block             = var.main_cidr_block

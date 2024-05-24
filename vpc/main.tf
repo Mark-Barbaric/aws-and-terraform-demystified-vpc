@@ -4,7 +4,6 @@ resource "aws_vpc" "main_vpc" {
   enable_dns_hostnames  = "true"
   tags = {
       Name              = "${var.vpc_name}"
-      terraform         = true
       environment       = "dev"
   }
 }
@@ -14,7 +13,6 @@ resource "aws_internet_gateway" "internet_gateway" {
 
     tags = {
         Name            = "${var.vpc_name} Gateway"
-        terraform       = true
         environment     = "test"
     }
 }
@@ -27,7 +25,6 @@ resource "aws_subnet" "public_subnets" {
   
   tags = {
       Name            = "${var.vpc_name} Public Subnet ${count.index + 1}"
-      terraform       = true
       environment     = var.environment
   }
 }
@@ -39,7 +36,6 @@ resource "aws_subnet" "private_subnets" {
   availability_zone = element(var.availability_zones, count.index % length(var.availability_zones))
   tags = {
       Name          = "${var.vpc_name} Private Subnet ${count.index + 1}"
-      terraform     = true
       environment   = var.environment
   }
 }
